@@ -1,0 +1,28 @@
+version: '3.1'
+
+services:
+
+  wordpress:
+    image: wordpress
+    restart: always
+    environment:
+      WORDPRESS_DB_PASSWORD: example
+
+  mysql:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+
+  nginx:
+    image: nginx:1.14.0-alpine
+    restart: always
+    ports:
+      - 80:80
+    volumes:
+      - /home/nginx.conf:/etc/nginx/nginx.conf:ro
+    dns: 8.8.8.8
+
+  wechat:
+    build: .
+

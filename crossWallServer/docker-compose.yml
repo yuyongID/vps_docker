@@ -1,0 +1,18 @@
+version: '3.1'
+
+services:
+    ssrserver:
+        image: breakwa11/shadowsocksr
+        restart: always
+        command: python server.py -p 443 -k password -m aes-128-cfb -O origin -o tls1.2_ticket_auth
+        ports:
+        - "10010:443"
+        
+    OpenConnect:
+        image: tommylau/ocserv
+        restart: always
+        cap_add:
+        - NET_ADMIN
+        ports:
+        - "443:443"
+        - "443:443/udp"
