@@ -8,11 +8,11 @@ services:
         ports:
         - "10010:443"
         
-    OpenConnect:
-        image: tommylau/ocserv
-        restart: always
-        cap_add:
-        - NET_ADMIN
-        ports:
-        - "443:443"
-        - "443:443/udp"
+    #  OpenConnect:
+        #  image: tommylau/ocserv
+        #  restart: always
+        #  cap_add:
+        #  - NET_ADMIN
+        #  ports:
+        #  - "443:443"
+        #  - "443:443/udp"
